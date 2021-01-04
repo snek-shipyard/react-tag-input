@@ -1,5 +1,5 @@
 {
-  "name": "react-tag-input",
+  "name": "@snek-shipyard/react-tag-input",
   "version": "1.1.0",
   "description": "A simple tag input component for React with editable tags",
   "main": "./build/umd/index.min.js",
@@ -10,7 +10,7 @@
   "homepage": "https://snek.at",
   "repository": {
     "type": "git",
-    "url": "https://github.com/snek-shipyard/react-tag-input"
+    "url": "git+https://github.com/snek-shipyard/react-tag-input.git"
   },
   "scripts": {
     "module-build": "tsc",
@@ -42,5 +42,12 @@
     "tslint-language-service": "^0.9.9",
     "typescript": "^3.5.3",
     "uglify-js": "^3.6.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/snek-shipyard/react-tag-input/issues"
+  },
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {}
 }
