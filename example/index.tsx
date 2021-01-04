@@ -1,9 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import ReactTagInput, {ReactTagInputProps} from "../src/index";
+import ReactTagInput, { ReactTagInputProps } from "../src/index";
 import "../src/styles/index.scss";
 
 const root = document.getElementById("root");
+
+type Significance =
+  | "LIGHT"
+  | "SUCCESS"
+  | "DANGER"
+  | "WARNING"
+  | "INFO"
+  | "DARK";
+type TagType = { name: string; significance: Significance };
 
 const initialSettings: ReactTagInputProps = {
   tags: [],
@@ -17,9 +26,10 @@ const initialSettings: ReactTagInputProps = {
 };
 
 function Example() {
-  const [tags, setTags] = React.useState<string[]>(["machine-1", "machine-2"]);
+  const [tags, setTags] = React.useState<TagType[]>([]);
+
   const [settings, setSettings] = React.useState(initialSettings);
-  console.log(tags, settings);
+  console.log(tags);
   return (
     <>
       <ReactTagInput
@@ -29,14 +39,15 @@ function Example() {
       />
 
       <div className="form">
-
         <div className="section" style={{ marginTop: "40px" }}>
           <label>
             Placeholder
             <input
               type="text"
               value={settings.placeholder}
-              onChange={(e) => setSettings({ ...settings, placeholder: e.target.value })}
+              onChange={(e) =>
+                setSettings({ ...settings, placeholder: e.target.value })
+              }
             />
           </label>
 
@@ -45,7 +56,12 @@ function Example() {
             <input
               type="number"
               value={settings.maxTags}
-              onChange={(e) => setSettings({ ...settings, maxTags: parseInt(e.target.value, 10) })}
+              onChange={(e) =>
+                setSettings({
+                  ...settings,
+                  maxTags: parseInt(e.target.value, 10),
+                })
+              }
             />
           </label>
         </div>
@@ -55,7 +71,9 @@ function Example() {
             <input
               type="checkbox"
               checked={settings.editable}
-              onChange={(e) => setSettings({ ...settings, editable: e.target.checked })}
+              onChange={(e) =>
+                setSettings({ ...settings, editable: e.target.checked })
+              }
             />
             Editable
           </label>
@@ -64,7 +82,9 @@ function Example() {
             <input
               type="checkbox"
               checked={settings.readOnly}
-              onChange={(e) => setSettings({ ...settings, readOnly: e.target.checked })}
+              onChange={(e) =>
+                setSettings({ ...settings, readOnly: e.target.checked })
+              }
             />
             Read-only
           </label>
@@ -73,7 +93,12 @@ function Example() {
             <input
               type="checkbox"
               checked={settings.removeOnBackspace}
-              onChange={(e) => setSettings({ ...settings, removeOnBackspace: e.target.checked })}
+              onChange={(e) =>
+                setSettings({
+                  ...settings,
+                  removeOnBackspace: e.target.checked,
+                })
+              }
             />
             Remove on backspace
           </label>
@@ -82,18 +107,21 @@ function Example() {
             <input
               type="checkbox"
               checked={!!settings.validator}
-              onChange={(e) => setSettings({
-                ...settings,
-                validator: e.target.checked ? (val) => val.indexOf("@") !== -1 : undefined,
-              })}
+              onChange={(e) =>
+                setSettings({
+                  ...settings,
+                  validator: e.target.checked
+                    ? (val) => val.indexOf("@") !== -1
+                    : undefined,
+                })
+              }
             />
             Custom validator (email)
           </label>
         </div>
-
       </div>
     </>
   );
 }
 
-ReactDOM.render(<Example/>, root);
+ReactDOM.render(<Example />, root);

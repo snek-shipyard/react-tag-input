@@ -1,4 +1,3 @@
-
 $reactTagColorGray: #e1e1e1;
 $reactTagColorText: #333;
 $reactTagHeight: 2.375em;
@@ -7,7 +6,6 @@ $reactTagBorderRadius: 3px;
 $reactTagMarginPadding: 0.1875em;
 
 .react-tag-input {
-
   box-sizing: border-box;
   position: relative;
   width: 100%;
@@ -26,12 +24,15 @@ $reactTagMarginPadding: 0.1875em;
   border: 1px solid $reactTagColorGray;
   border-radius: $reactTagBorderRadius;
 
-  * { box-sizing: border-box; }
+  * {
+    box-sizing: border-box;
+  }
 
-  > * { margin: $reactTagMarginPadding; }
+  > * {
+    margin: $reactTagMarginPadding;
+  }
 
   @at-root #{&}__input {
-
     width: auto;
     flex-grow: 1;
     height: $reactTagHeight - 0.5;
@@ -49,13 +50,16 @@ $reactTagMarginPadding: 0.1875em;
     box-shadow: none;
     -webkit-appearance: none;
 
-    &::placeholder, &:-moz-placeholder, &:-ms-input-placeholder, &::-moz-placeholder, &::-webkit-input-placeholder {
+    &::placeholder,
+    &:-moz-placeholder,
+    &:-ms-input-placeholder,
+    &::-moz-placeholder,
+    &::-webkit-input-placeholder {
       color: $reactTagColorText;
     }
     &:focus {
       border: none;
     }
-
   }
 
   @at-root #{&}__tag {
@@ -76,7 +80,6 @@ $reactTagMarginPadding: 0.1875em;
   }
 
   @at-root #{&}__tag__remove {
-
     position: relative;
     height: $reactTagFontSize * 2;
     width: $reactTagFontSize * 2;
@@ -87,11 +90,12 @@ $reactTagMarginPadding: 0.1875em;
     border-top-right-radius: $reactTagBorderRadius;
     border-bottom-right-radius: $reactTagBorderRadius;
 
-    &:before, &:after {
+    &:before,
+    &:after {
       position: absolute;
       top: 50%;
       left: 50%;
-      content: ' ';
+      content: " ";
       height: $reactTagFontSize - 0.1;
       width: 0.15em;
       background-color: $reactTagColorText;
@@ -103,15 +107,13 @@ $reactTagMarginPadding: 0.1875em;
       transform: translateX(-50%) translateY(-50%) rotate(-45deg);
     }
 
-
     @at-root #{&}-readonly {
       width: 0;
-      &:before, &:after {
-        content: '';
+      &:before,
+      &:after {
+        content: "";
         width: 0;
       }
     }
-
   }
-
 }
