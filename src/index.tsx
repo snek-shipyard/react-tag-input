@@ -1,7 +1,6 @@
 import React from "react";
 import { Tag } from "./components/Tag";
 import { classSelectors } from "./utils/selectors";
-import "./index.scss";
 
 type Significance =
   | "LIGHT"
